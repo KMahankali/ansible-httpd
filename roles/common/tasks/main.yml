@@ -2,6 +2,11 @@
 - name: yum install httpd
   yum: name=httpd state=present
 
+- name: Copy index.html.j2 template
+  template:
+    src: index.html.j2
+    dest: "/var/www/html/index.html"
+
 - name: start apache
   service:
     name=httpd
